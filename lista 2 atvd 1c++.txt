@@ -1,0 +1,109 @@
+atvd 1 
+
+
+Inclusão de bibliotecas:
+
+cpp
+Copy code
+#include <iostream>
+#include <string>
+Aqui estamos incluindo as bibliotecas iostream (para entrada/saída) e string (para manipulação de strings).
+
+Declaração da função bubbleSort:
+
+cpp
+Copy code
+void bubbleSort(string arr[], int n) {
+    // ...
+}
+Essa função é um algoritmo de ordenação conhecido como "Bubble Sort". Ela recebe um vetor de strings arr e o seu tamanho n como parâmetros.
+
+Variável swapped:
+
+cpp
+Copy code
+bool swapped;
+Essa variável é usada para controlar se ocorreram trocas de elementos durante uma iteração do bubble sort.
+
+Loop externo:
+
+cpp
+Copy code
+for (int i = 0; i < n - 1; i++) {
+    // ...
+}
+Esse é o loop externo do Bubble Sort, que vai percorrer o vetor várias vezes para garantir que todos os elementos estejam no lugar correto.
+
+Loop interno:
+
+cpp
+Copy code
+for (int j = 0; j < n - i - 1; j++) {
+    // ...
+}
+Esse é o loop interno do Bubble Sort. Ele compara elementos adjacentes no vetor e os troca de posição, se necessário.
+
+Verificação e troca de elementos:
+
+cpp
+Copy code
+if (arr[j] > arr[j + 1]) {
+    swap(arr[j], arr[j + 1]);
+    swapped = true;
+}
+Aqui, comparamos se o elemento atual (arr[j]) é maior que o próximo elemento (arr[j + 1]). Se for verdadeiro, trocamos os elementos de posição usando a função swap() da biblioteca <algorithm> e definimos a variável swapped como true.
+
+Condição de parada:
+
+cpp
+Copy code
+if (!swapped) {
+    break; // Se nenhum elemento foi trocado, o vetor está ordenado, então podemos parar.
+}
+Após cada iteração do loop externo, verificamos se houve alguma troca de elementos (swapped == true). Se não houver, isso significa que o vetor está ordenado e podemos parar o processo de ordenação antes de percorrer todas as iterações.
+
+Função main():
+
+cpp
+Copy code
+int main() {
+    // ...
+}
+A função main() é a função principal do programa.
+
+Declaração do vetor de países:
+
+cpp
+Copy code
+string paises_copa_feminina[] = {
+    "Estados Unidos",
+    "Alemanha",
+    "Noruega",
+    "Japão",
+    "Brasil"
+};
+Aqui estamos declarando um vetor de strings chamado paises_copa_feminina, que armazena os nomes dos países que já venceram a Copa do Mundo Feminina.
+
+Tamanho do vetor de países:
+
+cpp
+Copy code
+int tamanho = sizeof(paises_copa_feminina) / sizeof(paises_copa_feminina[0]);
+Estamos calculando o tamanho do vetor de países usando a expressão sizeof(paises_copa_feminina) / sizeof(paises_copa_feminina[0]).
+
+Chamada da função bubbleSort:
+cpp
+Copy code
+bubbleSort(paises_copa_feminina, tamanho);
+Chamamos a função bubbleSort para ordenar o vetor paises_copa_feminina em ordem alfabética.
+
+Exibição dos países ordenados:
+cpp
+Copy code
+cout << "Países que já venceram a Copa do Mundo Feminina (em ordem alfabética):" << endl;
+for (int i = 0; i < tamanho; i++) {
+    cout << paises_copa_feminina[i] << endl;
+}
+Por fim, exibimos os países ordenados em ordem alfabética usando um loop for para percorrer o vetor e imprimindo cada país na tela.
+
+Espero que isso esclareça o funcionamento do código! O Bubble Sort é um algoritmo simples de entender, mas pode não ser a melhor opção para grandes quantidades de dados, pois possui complexidade de tempo O(n^2). Existem outros algoritmos de ordenação mais eficientes para esses casos.
