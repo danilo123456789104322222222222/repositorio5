@@ -1,53 +1,36 @@
 #include <iostream>
-#include <cmath>
+#include <vector>
 
-// Função para verificar se um número é divisível por 3
-bool ehDivisivelPor3(int num) {
-    return num % 3 == 0;
-}
-
-// Função para verificar se um número é um quadrado perfeito
-bool ehQuadradoPerfeito(int num) {
-    int raiz = sqrt(num);
-    return raiz * raiz == num;
-}
-
-// Função para calcular a soma dos dígitos de um número
-int calcularSomaDigitos(int num) {
-    int soma = 0;
-    while (num != 0) {
-        soma += num % 10;
-        num /= 10;
-    }
-    return soma;
-}
-
-// Função para encontrar o menor número mágico dentro de um intervalo
-int encontrarNumeroMagico(int limiteInferior, int limiteSuperior) {
-    for (int num = limiteInferior; num <= limiteSuperior; num++) {
-        if (ehDivisivelPor3(num) && ehQuadradoPerfeito(num) && calcularSomaDigitos(num) <= 10) {
-            return num;
+void bubbleSort(std::vector<int>& arr) {
+    int n = arr.size();
+    for (int i = 0; i < n - 1; ++i) {
+        for (int j = 0; j < n - i - 1; ++j) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap arr[j] and arr[j+1]
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
         }
     }
-    return -1; // Caso nenhum número mágico seja encontrado
 }
 
 int main() {
-    int limiteInferior, limiteSuperior;
-
-    std::cout << "Digite o limite inferior do intervalo: ";
-    std::cin >> limiteInferior;
-
-    std::cout << "Digite o limite superior do intervalo: ";
-    std::cin >> limiteSuperior;
-
-    int numeroMagico = encontrarNumeroMagico(limiteInferior, limiteSuperior);
-
-    if (numeroMagico != -1) {
-        std::cout << "O menor numero magico dentro do intervalo [" << limiteInferior << ", " << limiteSuperior << "] e: " << numeroMagico << std::endl;
-    } else {
-        std::cout << "Nenhum numero magico encontrado dentro do intervalo [" << limiteInferior << ", " << limiteSuperior << "]" << std::endl;
+    std::vector<int> vehicleSpeeds = {65, 80, 45, 55, 70, 50};
+    
+    std::cout << "Original Speeds: ";
+    for (int speed : vehicleSpeeds) {
+        std::cout << speed << " ";
     }
+    std::cout << "\n";
+
+    bubbleSort(vehicleSpeeds);
+
+    std::cout << "Sorted Speeds: ";
+    for (int speed : vehicleSpeeds) {
+        std::cout << speed << " ";
+    }
+    std::cout << "\n";
 
     return 0;
 }
